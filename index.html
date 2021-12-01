@@ -21,14 +21,22 @@
             ctx.fillStyle = "green"
             ctx.fillRect(0,0, canvas.width, canvas.height);
         }
+
         
         
         let l = 2;
         let c = 1;
-        function terminouDeCarregar(){
-           
-        }
 
+
+        let pose = 0;
+        let quadro = 0;
+        const POSES = [
+            7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 6, 6, 6, 6, 13, 13, 13, 13, 6
+        ];
+
+        function terminouDeCarregar() {
+
+        }
         let t0;
         let dt;
 
@@ -39,15 +47,11 @@
 
             desenhaFundo();
 
-            c = c + 9*dt;
-
-            if(c > 6){
-                c = 0;
-            }
+            quadro =  (quadro >= POSES[pose] - 1) ? 0 : quadro + 9 * dt;
 
             ctx.drawImage(skelly,
             //sx, sy, sw, sh
-             Math.floor(c)*64, l*64, 64, 64,
+             Math.floor(quadro)*64, pose*64, 64, 64,
             //dx, dy, dw, dh
             //Onde vou colar o sprite
              0, 0, 64, 64
