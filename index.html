@@ -9,11 +9,11 @@
 <body>
     <h1>Exemplo 02</h1>
     <canvas></canvas>
-    <img src="assets/skeleton01.png">
     <script>
         const canvas = document.querySelector("canvas");
         const ctx = canvas.getContext("2d");
-        const skelly = document.querySelector("img");
+        const skelly = new Image();
+        skelly.src = "assets/skeleton01.png";
 
         skelly.addEventListener("load", terminouDeCarregar);
 
