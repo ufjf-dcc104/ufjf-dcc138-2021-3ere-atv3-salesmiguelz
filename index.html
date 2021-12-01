@@ -13,15 +13,23 @@
         const canvas = document.querySelector("canvas");
         const ctx = canvas.getContext("2d");
         const skelly = new Image();
-        skelly.src = "assets/skeleton01.png";
+        skelly.src = "assets/skelly.png";
 
         skelly.addEventListener("load", terminouDeCarregar);
 
         ctx.fillStyle = "green"
         ctx.fillRect(0,0, canvas.width, canvas.height);
         
+        let l = 2;
+        let c = 1;
         function terminouDeCarregar(){
-            ctx.drawImage(skelly, 0, 0);
+            ctx.drawImage(skelly,
+            //sx, sy, sw, sh
+             c*64, l*64, 64, 64,
+            //dx, dy, dw, dh
+            //Onde vou colar o sprite
+             0, 0, 64, 64
+            );
         }
     </script>
 </body>
