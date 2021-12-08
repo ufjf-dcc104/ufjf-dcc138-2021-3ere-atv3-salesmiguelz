@@ -9,6 +9,12 @@
 <body>
     <h1>Exemplo 02</h1>
     <canvas></canvas>
+    <div class="moves">
+        <h3>Controles (Segurar)</h2>
+        <p>P - Bloquear ataque</p>
+        <p>S - Soco</p>
+        <p>E - Especial</p>
+    </div>
     <script>
         const canvas = document.querySelector("canvas");
         const ctx = canvas.getContext("2d");
@@ -22,12 +28,19 @@
             ctx.fillRect(0,0, canvas.width, canvas.height);
         }
         
-        let pose = 0;
+        let pose = 3;
         let quadro = 0;
         const POSES = [
+            //Especial
             {qmax: 4, qpos: 52.5, pv: 5},
+
+            //Bloqueia soco
             {qmax: 4, qpos: 52.3, pv: 5},
+
+            //Soco
             {qmax: 3, qpos: 54.6, pv: 4},
+
+            //Corridinha
             {qmax: 4, qpos:50, pv: 7},
         ];
 
@@ -56,6 +69,45 @@
 
             requestAnimationFrame(passo);
             t0 = t;
+        }
+
+        addEventListener("keydown", teclaPressionada);
+        addEventListener("keyup", teclaSolta);
+
+        function teclaPressionada(event){
+            //ADiciona controle de velocidades
+            switch(event.key){
+                case "p":
+                    pose = 1;
+                    break;
+                case "e":
+                    pose = 0;
+                    break;
+                case "s":
+                    pose = 2;
+                    break;
+                case "c":
+                    pose = 3;
+                    break;
+            }
+        }
+
+        function teclaSolta(event){
+            //ADiciona controle de velocidades
+            switch(event.key){
+                case "p":
+                    pose = 3;
+                    break;
+                case "e":
+                    pose = 3;
+                    break;
+                case "s":
+                    pose = 3;
+                    break;
+                case "c":
+                    pose = 3;
+                    break;
+            }
         }
 
     </script>
