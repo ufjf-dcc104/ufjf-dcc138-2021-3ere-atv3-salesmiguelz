@@ -25,10 +25,10 @@
         let pose = 0;
         let quadro = 0;
         const POSES = [
-            {qmax: 4, pv: 8},
-            {qmax: 4, pv: 27},
-            {qmax: 3, pv: 27},
-            {qmax: 4, pv: 27},
+            {qmax: 4, qpos: 52.5, pv: 5},
+            {qmax: 4, qpos: 52.3, pv: 5},
+            {qmax: 3, qpos: 54.6, pv: 4},
+            {qmax: 4, qpos:50, pv: 7},
         ];
 
         function terminouDeCarregar() {
@@ -48,15 +48,16 @@
 
             ctx.drawImage(ken,
             //sx, sy, sw, sh
-             Math.floor(quadro)*64, pose*64, 64, 64,
+             Math.floor(quadro)* POSES[pose].qpos, pose*64, 62, 62,
             //dx, dy, dw, dh
             //Onde vou colar o sprite
-             0, 0, 64, 64
+             20, 20, 62, 62
             );
 
             requestAnimationFrame(passo);
             t0 = t;
         }
+
     </script>
 </body>
 </html>
