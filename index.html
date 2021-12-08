@@ -40,7 +40,7 @@
             //Soco
             {qmax: 3, qpos: 60, pv: 4},
 
-            //Corridinha
+            //Pose normal
             {qmax: 4, qpos:50, pv: 7},
         ];
 
@@ -75,7 +75,6 @@
         addEventListener("keyup", teclaSolta);
 
         function teclaPressionada(event){
-            //ADiciona controle de velocidades
             switch(event.key){
                 case "p":
                     pose = 1;
@@ -86,14 +85,11 @@
                 case "s":
                     pose = 2;
                     break;
-                case "c":
-                    pose = 3;
-                    break;
+               
             }
         }
 
         function teclaSolta(event){
-            //ADiciona controle de velocidades
             switch(event.key){
                 case "p":
                     pose = 3;
