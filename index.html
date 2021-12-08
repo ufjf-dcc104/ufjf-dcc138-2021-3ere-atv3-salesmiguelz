@@ -12,46 +12,23 @@
     <script>
         const canvas = document.querySelector("canvas");
         const ctx = canvas.getContext("2d");
-        const skelly = new Image();
-        skelly.src = "assets/skelly.png";
+        const ken = new Image();
+        ken.src = "assets/ken.png";
 
-        skelly.addEventListener("load", terminouDeCarregar);
+        ken.addEventListener("load", terminouDeCarregar);
 
         function desenhaFundo(){
             ctx.fillStyle = "green"
             ctx.fillRect(0,0, canvas.width, canvas.height);
         }
-
         
-        
-        let l = 2;
-        let c = 1;
-
-
         let pose = 0;
         let quadro = 0;
         const POSES = [
-            {qmax: 7, pv: 9},
-            {qmax: 7, pv: 9},
-            {qmax: 7, pv: 9},
-            {qmax: 7, pv: 9},
-            {qmax: 8, pv: 9},
-            {qmax: 8, pv: 9},
-            {qmax: 8, pv: 9},
-            {qmax: 8, pv: 9},
-            {qmax: 9, pv: 9},
-            {qmax: 9, pv: 9},
-            {qmax: 9, pv: 9},
-            {qmax: 9, pv: 9},
-            {qmax: 6, pv: 9},
-            {qmax: 6, pv: 9},
-            {qmax: 6, pv: 9},
-            {qmax: 6, pv: 9},
-            {qmax: 13, pv: 27},
-            {qmax: 13, pv: 27},
-            {qmax: 13, pv: 27},
-            {qmax: 13, pv: 27},
-            {qmax: 6, pv: 9},
+            {qmax: 4, pv: 8},
+            {qmax: 4, pv: 27},
+            {qmax: 3, pv: 27},
+            {qmax: 4, pv: 27},
         ];
 
         function terminouDeCarregar() {
@@ -69,7 +46,7 @@
 
             quadro =  (quadro >= POSES[pose].qmax - 1) ? 0 : quadro + POSES[pose].pv * dt;
 
-            ctx.drawImage(skelly,
+            ctx.drawImage(ken,
             //sx, sy, sw, sh
              Math.floor(quadro)*64, pose*64, 64, 64,
             //dx, dy, dw, dh
